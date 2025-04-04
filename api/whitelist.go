@@ -5,9 +5,9 @@
 package api
 
 import (
-	"TeleBot/config"
-	"TeleBot/global"
-	"TeleBot/utils"
+	"TeleGPT/config"
+	"TeleGPT/global"
+	"TeleGPT/utils"
 	"fmt"
 	"strconv"
 
@@ -15,8 +15,8 @@ import (
 )
 
 func Add(bot *tgbotapi.BotAPI, update *tgbotapi.Message) {
-	if update.Chat.ID != int64(config.Config.GroupInfo.Admin_id) {
-		global.Log.Infof("%d尝试使用管理员命令", update.Chat.ID)
+	if update.From.ID != config.Config.GroupInfo.Admin_id {
+		global.Log.Infof("%d尝试使用管理员命令", update.From.ID)
 		msg := tgbotapi.NewMessage(update.Chat.ID, "你没有权限使用此命令")
 		msg.ReplyToMessageID = update.MessageID
 		bot.Send(msg)
@@ -63,8 +63,8 @@ func Add(bot *tgbotapi.BotAPI, update *tgbotapi.Message) {
 }
 
 func Del(bot *tgbotapi.BotAPI, update *tgbotapi.Message) {
-	if update.Chat.ID != int64(config.Config.GroupInfo.Admin_id) {
-		global.Log.Infof("%d尝试使用管理员命令", update.Chat.ID)
+	if update.From.ID != config.Config.GroupInfo.Admin_id {
+		global.Log.Infof("%d尝试使用管理员命令", update.From.ID)
 		msg := tgbotapi.NewMessage(update.Chat.ID, "你没有权限使用此命令")
 		msg.ReplyToMessageID = update.MessageID
 		bot.Send(msg)
@@ -119,7 +119,7 @@ func Del(bot *tgbotapi.BotAPI, update *tgbotapi.Message) {
 }
 
 func WhiteList(bot *tgbotapi.BotAPI, update *tgbotapi.Message) {
-	if update.Chat.ID != int64(config.Config.GroupInfo.Admin_id) {
+	if update.From.ID != config.Config.GroupInfo.Admin_id {
 		global.Log.Infof("%d尝试使用管理员命令", update.Chat.ID)
 		msg := tgbotapi.NewMessage(update.Chat.ID, "你没有权限使用此命令")
 		msg.ReplyToMessageID = update.MessageID
