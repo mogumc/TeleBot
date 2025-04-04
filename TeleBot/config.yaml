@@ -1,0 +1,13 @@
+logger:
+    level: info
+    prefix: '[TeleBoT]'
+    show_line: true
+    log_in_console: true
+bot:
+    bottoken:
+    bot_user_name:
+    privacy: true
+
+group:
+    admin_id: 1363232072
+    Whitelist: []
