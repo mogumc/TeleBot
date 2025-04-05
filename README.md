@@ -6,3 +6,6 @@
 
 ## 额外引用的模板
 [Logger](https://github.com/mogumc/Logger)
+
+## License
+GPL-3.0 license
